@@ -180,8 +180,8 @@ int isTmax(int x) {
  *   Rating: 2
  */
 int allOddBits(int x) {
-  int res= 43690<<15;
-  res = res + 21845; // 010101010101010101010101010101
+  int res= 0xAAAA<<15; // 0xAAAA = 43690 & 0x5555 = 21845
+  res = res + 0x5555; // 010101010101010101010101010101
   return !(~(~res|x));
 
 }
