@@ -206,7 +206,9 @@ int negate(int x) {
  *   Rating: 3
  */
 int isAsciiDigit(int x) {
-  return 2;
+  int li= 0x30;
+  int ls = 0x3a;   //Se considera < en vez de <=
+  return !((x+(~li + 1))>>31) & (x+(~ls + 1))>>31; // !0 & 1 si es correcto
 }
 /* 
  * conditional - same as x ? y : z 
