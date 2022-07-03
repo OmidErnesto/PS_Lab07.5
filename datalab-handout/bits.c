@@ -229,7 +229,11 @@ int conditional(int x, int y, int z) {
  *   Rating: 3
  */
 int isLessOrEqual(int x, int y) {
-  return 2;
+  int signo_x = x>>31;
+  int signo_y = y>>31;
+  int resta = ((x+(~y))>>31)&(!(signo_x^signo_y)); //Signos iguales
+  int signos = signo_x & !(signo_y);    //Si x es positivo y y negativo
+  return resta | signos;
 }
 //4
 /* 
